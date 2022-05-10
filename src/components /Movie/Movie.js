@@ -1,7 +1,7 @@
 import React from "react";
+const Movie = ({movie}) => {
+    const {Title: title, Year: year, imdbID: id, Type: type, Poster: poster} = movie;
 
-const Movie = (props) => {
-    const {Title: title, Year: year, imdbID: id, Type: type, Poster: poster} = props
     return (
         <div>
             <div id={id} className="card movie">
@@ -12,7 +12,6 @@ const Movie = (props) => {
                             :
                             <img className="activator" src={poster}/>
                     }
-
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">{title}<i

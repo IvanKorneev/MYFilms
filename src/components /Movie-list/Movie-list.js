@@ -1,15 +1,14 @@
 import React from "react";
 import Movie from "../Movie";
 
-const MovieList = (props) => {
-    const {movies} = props
+const MovieList = ({movies = []}) => {
     return (
         <div className='movies'>
-            {movies.map(movie => {
-                return(
-                    <Movie key={movie.imdbID} {...movie}/>
-                    )
-            })};
+            {
+                movies.length ? movies.map(movie => (
+                    <Movie key={movie.imdbID} movie={movie}/>
+                )) : <h4>Nothing found</h4>
+            }
         </div>
     );
 };
