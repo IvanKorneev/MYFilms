@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import MovieList from "../Movie-list";
+import Loader from "../Loader";
 const axios = require('axios').default;
 
 const Main = () => {
@@ -18,7 +19,7 @@ const Main = () => {
                 {
                     movies.length ? (
                         <MovieList movies={movies}/>
-                    ) : <h4>Loading...</h4>
+                    ) : <Loader/>
                 }
             </main>
 
