@@ -15,9 +15,10 @@ const Main = () => {
 
     }, []);
 
-    const searchMovies = (str) => {
-        axios.get(`http://www.omdbapi.com/?apikey=8b4ef849&s=${str}`)
+    const searchMovies = (str, type) => {
+        axios.get(`http://www.omdbapi.com/?apikey=8b4ef849&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
             .then(response => setMovies(response.data.Search))
+        console.log(str,type)
     }
     return (
         <div>
