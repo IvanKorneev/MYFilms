@@ -7,7 +7,7 @@ const axios = require('axios').default;
 
 const Main = () => {
     const [movies, setMovies] = useState([]);
-
+    console.log(movies)
 
     useEffect(() => {
         axios.get('http://www.omdbapi.com/?apikey=8b4ef849&s=matrix')
@@ -15,8 +15,8 @@ const Main = () => {
 
     }, []);
 
-    const searchMovies = (str, type = 'all') => {
-        axios.get(`http://www.omdbapi.com/?apikey=8b4ef849&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+    const searchMovies = (str) => {
+        axios.get(`http://www.omdbapi.com/?apikey=8b4ef849&s=${str}`)
             .then(response => setMovies(response.data.Search))
     }
     return (
